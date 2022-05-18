@@ -2,8 +2,12 @@ const express = require('express')
 const app = express()
 const PORT = 3000
 
+//send manda uma informação
+//sendFile serve para mandar arquivo
+//__dirname retorna o diretorio raiz da minha aplicação
+
 app.get('/', function (req, res) {
-  res.send('Hello World')
+  res.sendFile(__dirname + "/main.html")
 })
 
 app.listen(PORT, () => {
