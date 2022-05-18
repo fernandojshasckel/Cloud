@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express()
+const PORT = 3000
 
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
 
-app.listen(8080)
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado na porta ${PORT}`)
+  console.log(`Para acessar: http://localhost3000`)
+})
