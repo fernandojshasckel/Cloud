@@ -33,6 +33,14 @@ Como utilizarei o MySQL irei ter que instalar o modulo do mesmo
 
 
 
+
+# Handlebars
+Utilizado para simplificar o conteudo html da pagina
+
+### npm install --save express--handlebars
+
+
+
 # Banco de dados
 
 O projeto ira armazenar as informações em um banco de dados MySQL
@@ -54,10 +62,6 @@ Para ver a estrutura a tabela
 
 Para ver as tabelas
 ### SHOW TABLES;
-
-Tabela de usuario tem as colunas:
-    - Nome
-    - Email
-    - Senha    
+ 
 
 
