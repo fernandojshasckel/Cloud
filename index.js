@@ -4,6 +4,8 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const PORT = 3000
 const Usuario = require('./models/Usuario')
+const Curriculo = require('./models/Curriculo')
+const path = require("path")
 
 
 //Config
@@ -18,14 +20,28 @@ const Usuario = require('./models/Usuario')
     app.use(express.json())
 
 // Rotas
-    app.get('/register', function (req, res){
-        res.render('register.handlebars')
+
+    //Pagina inicial
+    app.get('/', (req, res) => {
+        res.render('curriculo.handlebars')
     })
 
-    app.get('/', function (req, res){
-        res.render('login.handlebars')
+    //Novo curriculo
+    app.get('/add', (req, res) => {
+        res.render('getin.handlebars')
     })
 
+    //Editar curriculo
+    app.get('/edit', (req, res) => {
+        res.render('edit.handlebars')
+    })
+
+    //Apagar curriculo
+    app.get('/delete', (req, res) => {
+        res.render('#')
+    })
+
+    //Apresentando dados
     app.get('/home', function (req, res){
         Usuario.findAll().then(function(usuarios){
             res.render('home.handlebars', {teste: "Fernando"})
@@ -33,6 +49,7 @@ const Usuario = require('./models/Usuario')
         })
     })
 
+    //Salvando dados
     app.post('/add', function(req, res) {
         Usuario.create({
             nome: req.body.nome,
@@ -44,6 +61,9 @@ const Usuario = require('./models/Usuario')
             res.send(`Erro ao cadastrar usuario ${erro}`)
         })
     })
+
+// Public
+    app.use(express.static(path.join(__dirname + "/public")))
 
 app.listen(PORT, () => {
   console.log(`Servidor iniciado na porta ${PORT}`)
