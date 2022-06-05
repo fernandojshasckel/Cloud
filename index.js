@@ -21,9 +21,14 @@ const path = require("path")
 
 // Rotas
 
-    //Pagina inicial
+    //Pagina inicial - nenhum registro
+    //app.get('/', (req, res) => {
+        //res.render('welcome.handlebars')
+    //})
+
+    //Pagina inicial - registro cadastrado
     app.get('/', (req, res) => {
-        res.render('curriculo.handlebars')
+        res.render('index.handlebars')
     })
 
     //Novo curriculo
@@ -39,6 +44,11 @@ const path = require("path")
     //Apagar curriculo
     app.get('/delete', (req, res) => {
         res.render('#')
+    })
+
+    //Sobre a pagin
+    app.get('/about', (req, res) => {
+        res.render('about.handlebars')
     })
 
     //Apresentando dados
